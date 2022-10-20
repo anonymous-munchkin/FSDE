@@ -74,13 +74,13 @@ Note that the 5-fold cross-validation experiments on Large-Sim data use 1,000 in
 ### 2.2.2. Large Simulation Data (Large-Sim): Runtime vs. Number of Inducing Points
 To run the runtime benchmarking experiments with varying numbers of inducing points, move to `./fsde/sim_exps_large` and run the following command:
 ```
-python3 runtime_fsde_svi.py --ind_id <Number between 1 and 4> --natgrad (Factorial SDE with SVI)
+python3 runtime_fsde_svi.py --ind_id <Number between 1 and 4> --natgrad (Factorial SDE with Sparse VI)
 python3 runtime_imc.py --ind_id <Number between 1 and 4> --natgrad (IMC baseline)
 python3 runtime_lmc.py --ind_id <Number between 1 and 4> --natgrad (LMC baseline)
 ```
 The `--ind_id` argument, which accepts numbers between 1 and 4, specifies the number of inducing points to use. 1 corresponds to 200 inducing points, 2 to 400 inducing points, 3 to 600 inducing points, and 4 to 800 inducing points. By default, the first of the 5-fold train-test splits of the Large-Sim dataset is used. To use a different train-test split, you can add the `--split_id` option, which accepts a number between 1 and 5 that specifies the particular train-test split. 
 
-For example, to train the factorial SDE with SVI with 400 inducing points on the third train-test split of the Large-Sim dataset, you can run:
+For example, to train the factorial SDE with sparse variational inference using 400 inducing points on the third train-test split of the Large-Sim dataset, you can run:
 ```
 python3 runtime_fsde_svi.py --ind_id 2 --split_id 3 --natgrad
 ```
