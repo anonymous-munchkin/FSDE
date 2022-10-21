@@ -135,7 +135,7 @@ def get_batch(dataset: Dataset, batch_size: int, key: chex.PRNGKey):
     """Mini-batching function adapted from GPJax"""
     
     # Randomly sample mini-batch indices
-    idxs = jr.choice(key, dataset.T, (batch_size,), replace=False) # TESTING replacement
+    idxs = jr.choice(key, dataset.T, (batch_size,), replace=False)
     
     return Dataset(times=dataset.times[idxs], Y=dataset.Y[:,idxs])
 
